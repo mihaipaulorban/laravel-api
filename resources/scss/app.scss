@@ -1,0 +1,47 @@
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Stili globali
+* {
+    cursor: none !important;
+}
+
+// Stili tabella
+table {
+    tr {
+        td,
+        th {
+            background-color: rgba(255, 255, 255, 0) !important;
+        }
+    }
+    color: white;
+}
+
+// Stili della navbar
+nav {
+    .container {
+        width: 70%;
+    }
+}
+
+body {
+    background-color: aliceblue;
+    cursor: none;
+
+    // Stili cursore personalizzato
+    .cursor {
+        pointer-events: none;
+
+        &__ball {
+            position: fixed;
+            top: -12px;
+            left: -5px;
+            mix-blend-mode: difference;
+            z-index: 1000;
+
+            circle {
+                fill: #f7f8fa;
+            }
+        }
+    }
+}
