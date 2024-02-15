@@ -19,7 +19,9 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    // Origin consentiti: tutti, o un elenco di domini separati da virgola
+    'allowed_origins' => explode(',', env('CORS_ALLOWED_ORIGINS', '*')),
+
 
     'allowed_origins_patterns' => [],
 
