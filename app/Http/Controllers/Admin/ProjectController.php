@@ -12,11 +12,21 @@ class ProjectController extends Controller
 {
 
     // Mostra tutti i progetti
-    public function index()
+    public function index(Request $request)
     {
-        $projects = Project::all();
 
-        return view('admin', ['projects' => $projects]);
+        $projects = Project::query()
+            ->when($request->title, function ($q) use ($request) {
+                return $q->where('title', 'like', "%{$request->title}%");
+            })
+            ->when($request->type, function ($q) use ($request) {
+                return $q->where('type_id', $request->type);
+            })
+            ->get();
+
+        return view('admin', [
+            'projects' => $projects
+        ]);
     }
 
     // Mostra la vista per creare un nuovo progetto
