@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mt-5 vh-100">
         <h2 class="mb-5">Aggiungi Progetto</h2>
-        <form action="{{ route('admin.projects.store') }}" method="POST">
+        <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             {{-- Campi del form --}}
             <div class="mb-3">
@@ -14,6 +14,13 @@
                 <label for="description" class="form-label font-weight-bold">Descrizione</label>
                 <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
             </div>
+            
+            {{-- Selezione immagine --}}
+            <div class="mb-3">
+                <label for="image" class="form-label font-weight-bold">Immagine</label>
+                <input type="file" class="form-control" id="image" name="image">
+            </div>
+
             {{-- Selezione del tipo --}}
             <div class="mb-3">
                 <label for="type_id" class="form-label font-weight-bold">Tipo di Progetto</label>

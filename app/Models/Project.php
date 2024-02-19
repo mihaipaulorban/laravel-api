@@ -15,6 +15,7 @@ class Project extends Model
         'title',
         'description',
         'type_id',
+        'image',
     ];
 
     // Restituisce il tipo associato al progetto

@@ -9,6 +9,11 @@
         {{-- Descrizione --}}
         <p>{{ $project->description }}</p>
 
+        {{-- Immagine --}}
+        @if ($project->image)
+        <img src="{{ asset('storage/' . $project->image) }}" alt="Immagine del progetto">
+        @endif
+
         {{-- Lista tecnoologie in stile tag --}}
         <ul class="list-group">
             <div class="d-flex justify-content-center">
@@ -19,5 +24,14 @@
 
         </ul>
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </div>
 @endsection
